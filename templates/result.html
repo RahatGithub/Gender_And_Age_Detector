@@ -5,16 +5,16 @@
 {% block body %}
 
 <section class="container d-flex justify-content-center align-items-center">
-    <div class="main-div bg-secondary m-5 p-5">
-        <h1 class="text-light">Result</h1>
+    <div class="main-div bg-light m-5 p-5">
+        <h1 class="text-primary">Result</h1>
         <br>
         <img src= "{{uploaded_image}}" height='300px'>
-        <h3 class="text-light">Gender: {{gender}}</h3>
-        <h3 class="text-light">Age: {{age}}</h3>
+        <h3 class="text-dark">Gender: {{gender}}</h3>
+        <h3 class="text-dark">Age: {{age}}</h3>
     </div>
 </section>
 
-<section class="container d-flex justify-content-center align-items-center">
+<section class="container d-flex justify-content-center align-items-center  mb-5">
     <a href="/upload" class="btn btn-primary">Test another image</a>
 </section>
 

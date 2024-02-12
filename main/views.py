@@ -25,12 +25,13 @@ def get_image_features(image): # image denotes image path
 def ResultView(request):
     queryset = TestImage.objects.all()
     result = [{
+        'id' : q.id,
         'image' : q.image, 
         'gender' : q.gender,
         'age' : q.age 
     } for q in queryset]
     
-    for res in result: print(res)
+    print(result)
     return render(request, 'history.html')
 
 
@@ -51,6 +52,12 @@ def UploadImageView(request):
             gender_dict = {0:'Male', 1:'Female'}
             gender = gender_dict[round(pred[0][0][0])]
             age = round(pred[1][0][0])
+            
+            id = instance.id 
+            instance = TestImage.objects.get(id=id) # again declaring instance that is coming from the DB
+            instance.gender = gender
+            instance.age = age 
+            instance.save()
 
             context={
                 'uploaded_image' : image_path,
