@@ -46,7 +46,7 @@ def UploadImageView(request):
             instance.save() 
 
             image_path = f'media/uploaded_images/{uploaded_image}'
-            model = load_model('PredictorModel.h5')
+            model = load_model('PredictorModel_8076_dataset.h5')
             features = get_image_features(image_path)
             pred = model.predict(features)
             gender_dict = {0:'Male', 1:'Female'}
